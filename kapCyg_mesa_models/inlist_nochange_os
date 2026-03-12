@@ -1,0 +1,65 @@
+&star_job
+  ! begin with a pre-main sequence model
+  create_pre_main_sequence_model = .true.
+  ! stopping criterion
+  required_termination_code_string = 'xa_central_lower_limit'
+  ! Stop at 0.001 opacity for GYRE calcultaions
+  relax_to_this_tau_factor = 0.001 
+  relax_tau_factor = .true.
+/ ! end of star_job namelist
+
+&eos
+/ ! end of eos namelist
+
+&pgstar
+/ ! end of pgstar namelist
+
+&kap
+  use_Type2_opacities = .true.
+/ ! end of kap namelist
+
+
+&controls
+
+  x_logical_ctrl(99)=.true. !if true run gyre
+  x_logical_ctrl(66)=.false. !if true no profiles and no history13
+
+  varcontrol_target = 1d-3 
+  time_delta_coeff = 0.5
+  mesh_delta_coeff = 0.5 
+
+  ! stopping criterion based upon star job
+  xa_central_lower_limit_species(1) = 'he4'
+  xa_central_lower_limit(1) = 1d-5
+
+  ! wind
+  cool_wind_full_on_T = 9.99d9
+  hot_wind_full_on_T = 1d10
+  cool_wind_RGB_scheme = 'Reimers'
+  RGB_to_AGB_wind_switch = 1d-4
+  Reimers_scaling_factor = 0.2
+
+  ! mixing
+  overshoot_scheme(1) = 'exponential'
+  overshoot_zone_type(1) = 'any' 
+  overshoot_zone_loc(1) = 'any' 
+  overshoot_bdy_loc(1) = 'any'
+
+  ! output
+  photo_interval = -1
+  profile_interval = -1
+  history_interval = 10
+  terminal_interval = 300 
+  write_header_frequency = 600 
+
+
+  ! atmosphere
+  atm_T_tau_opacity = 'varying'
+
+  ! Reaction values
+  default_net_name = 'pp_cno_extras_o18_ne22.net'
+
+  ! Stopping criteria
+  max_num_profile_models = 10
+  max_model_number = 10000 
+/ ! end of controls namelist

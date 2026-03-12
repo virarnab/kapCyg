@@ -1,0 +1,76 @@
+&constants
+/
+
+&model
+/
+
+&mode
+  l = 0 ! Harmonic degree
+  tag = 'radial'
+/
+
+&mode
+  l = 1 ! Harmonic degree
+  tag = 'dipole'
+/
+
+&mode
+  l = 2 ! Harmonic degree
+  tag = 'quadrupole'
+/
+
+&osc
+  outer_bound = 'JCD' 
+  variables_set = 'JCD'
+  alpha_pi = 0. !get pi modes
+  x_atm = 0.8
+/
+
+&rot
+/
+
+&num
+  !diff_scheme = 'COLLOC_GL4' ! 4th-order collocation scheme for difference equations
+  diff_scheme = 'MAGNUS_GL6' ! 6th-order Gauss-Legendre Magnus
+/
+
+&scan
+  tag_list = 'radial'
+  grid_type = 'LINEAR' ! Scan grid uniform in frequency
+  freq_min = 30      ! Minimum frequency to scan from
+  freq_max = 140        ! Maximum frequency to scan to  
+
+  n_freq = 200          ! Number of frequency points in scan
+  freq_units = 'UHZ'
+/
+
+&scan
+  tag_list = 'dipole'
+  grid_type = 'LINEAR'
+  freq_min = 30        ! Minimum frequency to scan from
+  freq_max = 140        ! Maximum frequency to scan to  
+  n_freq = 1000          ! Number of frequency points in scan
+  freq_units = 'UHZ'
+/
+
+&scan
+  tag_list = 'quadrupole'
+  grid_type = 'LINEAR'
+  freq_min = 30        ! Minimum frequency to scan from
+  freq_max = 140        ! Maximum frequency to scan to  
+  n_freq = 1000          ! Number of frequency points in scan
+  freq_units = 'UHZ'
+/
+
+&grid
+  w_osc = 15 ! Oscillatory region weight parameter
+  w_exp = 2  ! Exponential region weight parameter
+  w_ctr = 15 ! Central region weight parameter
+/
+
+&ad_output
+/
+
+&nad_output
+/
+
