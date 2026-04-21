@@ -1,6 +1,7 @@
 # Kap Cyg MESA Models and PAVO Visibilities
 
-This archive contains **MESA inlists and PAVO interferometric visibility data** corresponding to **Chowhan et al. (2026)**.
+This archive contains **MESA inlists and PAVO interferometric visibility data** corresponding to **Chowhan et al. (2026)**, available at 
+https://doi.org/10.48550/arXiv.2604.13501 or https://doi.org/10.1093/mnras/stag719.
 
 ## Contents
 
