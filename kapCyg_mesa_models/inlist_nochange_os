@@ -37,7 +37,6 @@
   hot_wind_full_on_T = 1d10
   cool_wind_RGB_scheme = 'Reimers'
   RGB_to_AGB_wind_switch = 1d-4
-  Reimers_scaling_factor = 0.2
 
   ! mixing
   overshoot_scheme(1) = 'exponential'
